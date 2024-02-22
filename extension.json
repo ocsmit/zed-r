@@ -1,0 +1,9 @@
+{
+  "name": "R",
+  "version": "0.0.1",
+  "authors": [
+    "ocsmit <owen8461@protonmail.com>"
+  ],
+  "description": "Provides R syntax highlighting and language support in Zed",
+  "repository": "https://github.com/ocsmit/zed-r"
+}
