@@ -1,2 +1,2 @@
 # zed-r
-r language support for zed
+Extension for Zed to support R
