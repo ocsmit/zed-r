@@ -1,11 +1,11 @@
 # zed-r
-Extension for Zed to support R
 
-# Installing - Zed
+Provides [tree-sitter](https://tree-sitter.github.io/tree-sitter/) queries and [Language Server Protocol (LSP)](https://github.com/REditorSupport/languageserver?tab=readme-ov-file) support for Zed.
 
-The extension interface can be accessed through the command palette (`cmd-shift-p > zed: extensions`) and searching `R`. 
-Due to the extension title only being one letter, you may have to scroll a bit to find it!
+# Installing
 
-# Installing - local
+The latest version can be installed from the Zed extensions menu, or by cloning the repo and installing it locally from the Zed extensions menu.
 
-To install manually please [zeds documentation](https://github.com/zed-industries/extensions/blob/main/AUTHORING_EXTENSIONS.md#testing-your-extension-locally) on how to install and generate the required tree-sitter grammar. 
+# LSP
+
+The R packages 'languageserver' and 'lintr' are needed
