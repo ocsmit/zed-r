@@ -110,19 +110,42 @@
   (false)
 ] @boolean
 
+; funcs
 "function" @keyword.function
-
 (call function: (identifier) @function)
+
+[
+  (function_definition)
+  (lambda_function)
+] @function.outer
+
+(function_definition
+  [
+    (call)
+    (binary)
+    (brace_list)
+  ] @function.inner) @function.outer
+
+(lambda_function
+  [
+    (call)
+    (binary)
+    (brace_list)
+  ] @function.inner
+) @function.outer
+
 (default_argument name: (identifier) @parameter)
 
+; namespace calls
+(namespace_get function: (identifier) @function)
+(namespace_get_internal function: (identifier) @function)
 
-(namespace_get function: (identifier) @method)
-(namespace_get_internal function: (identifier) @method)
-
-(namespace_get namespace: (identifier) @namespace
- "::" @operator)
-(namespace_get_internal namespace: (identifier) @namespace
- ":::" @operator)
+(namespace_get
+    namespace: (identifier) @name
+    "::" @operator)
+(namespace_get_internal
+    namespace: (identifier) @name
+    ":::" @operator)
 
 ; Error
 (ERROR) @error

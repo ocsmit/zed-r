@@ -2,11 +2,17 @@ name = "R"
 grammar = "r"
 path_suffixes = ["r", "R"]
 line_comments = ["# "]
-autoclose_before = "}])"
+autoclose_before = ""
 brackets = [
     { start = "{", end = "}", close = true, newline = true },
     { start = "(", end = ")", close = true, newline = true },
-    { start = "[", end = "]", close = true, newline = true },
-    { start = "\"", end = "\"", close = true, newline = false },
-    { start = "'", end = "'", close = true, newline = false },
+    { start = "\"", end = "\"", close = true, newline = false, not_in = [
+        "comment",
+        "string",
+    ] },
+    { start = "'", end = "'", close = true, newline = false, not_in = [
+        "comment",
+        "string",
+    ] },
 ]
+collapsed_placeholder = "# ..."
