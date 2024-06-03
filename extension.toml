@@ -1,6 +1,6 @@
 id = "r"
 name = "R"
-version = "0.0.2"
+version = "0.0.3"
 schema_version = 1
 authors = ["Owen Smith <ocsmit@protonmail.com>"]
 description = "R languange support"
