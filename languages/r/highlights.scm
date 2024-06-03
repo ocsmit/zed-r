@@ -72,6 +72,7 @@
 ] @punctuation.bracket
 
 (dollar "$" @operator)
+(slot "@" @operator)
 
 (subset2
  [
