@@ -1,6 +1,6 @@
 .DS_Store
 *.R
-grammars/
-target/
+grammars
+target
 Cargo.lock
 extension.wasm
