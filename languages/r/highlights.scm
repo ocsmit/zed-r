@@ -150,3 +150,7 @@
 
 ; Error
 (ERROR) @error
+
+; roxygen
+((comment) @documentation
+    (#match? @documentation "^#'"))
