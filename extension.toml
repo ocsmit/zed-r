@@ -1,8 +1,8 @@
 id = "r"
 name = "R"
-version = "0.0.3"
+version = "0.0.4"
 schema_version = 1
-authors = ["Owen Smith <ocsmit@protonmail.com>"]
+authors = ["Owen Smith <owen8461@protonmail.com>"]
 description = "R languange support"
 repository = "https://github.com/ocsmit/zed-r"
 
