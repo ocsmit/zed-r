@@ -150,3 +150,11 @@
 
 ; Error
 (ERROR) @error
+
+; roxygen
+((comment) @documentation
+    (#match? @documentation "^#'"))
+
+; jupyter cell tag
+((comment) @operator
+    (#match? @operator "^#\\s?%%"))
