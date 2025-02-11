@@ -7,7 +7,19 @@
    name: (identifier) @name
    value: (_) @value) @item
 
-; `for` statement
+(right_assignment
+    value: (_) @value
+    name: (identifier) @name) @item
+
+(super_assignment
+    name: (identifier) @name
+    value: (_) @value) @item
+
+(super_right_assignment
+    value: (_) @value
+    name: (identifier) @name) @item
+
+; `for` loop
 (for
   "(" (identifier) @name
       "in" (_) @value
