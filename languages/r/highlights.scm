@@ -85,8 +85,6 @@
  "if"
  "else"
  "switch"
- "stop"
- "tryCatch"
  "while"
  "repeat"
  "for"
@@ -100,7 +98,7 @@
   (nan)
   (na)
   (null)
-] @type.builtin
+] @variable.special
 
 [
   (true)
