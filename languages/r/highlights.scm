@@ -82,6 +82,12 @@
 
 [
  "in"
+ "if"
+ "else"
+ "switch"
+ "while"
+ "repeat"
+ "for"
  (dots)
  (break)
  (next)
@@ -92,19 +98,7 @@
   (nan)
   (na)
   (null)
-] @type.builtin
-
-[
-  "if"
-  "else"
-  "switch"
-] @conditional
-
-[
-  "while"
-  "repeat"
-  "for"
-] @repeat
+] @variable.special
 
 [
   (true)
@@ -142,10 +136,10 @@
 (namespace_get_internal function: (identifier) @function)
 
 (namespace_get
-    namespace: (identifier) @name
+    namespace: (identifier) @type
     "::" @operator)
 (namespace_get_internal
-    namespace: (identifier) @name
+    namespace: (identifier) @type
     ":::" @operator)
 
 ; Error
