@@ -138,10 +138,10 @@
 (namespace_get_internal function: (identifier) @function)
 
 (namespace_get
-    namespace: (identifier) @name
+    namespace: (identifier) @type
     "::" @operator)
 (namespace_get_internal
-    namespace: (identifier) @name
+    namespace: (identifier) @type
     ":::" @operator)
 
 ; Error
