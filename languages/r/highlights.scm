@@ -82,6 +82,14 @@
 
 [
  "in"
+ "if"
+ "else"
+ "switch"
+ "stop"
+ "tryCatch"
+ "while"
+ "repeat"
+ "for"
  (dots)
  (break)
  (next)
@@ -93,18 +101,6 @@
   (na)
   (null)
 ] @type.builtin
-
-[
-  "if"
-  "else"
-  "switch"
-] @conditional
-
-[
-  "while"
-  "repeat"
-  "for"
-] @repeat
 
 [
   (true)
