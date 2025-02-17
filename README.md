@@ -14,10 +14,11 @@ The R packages 'languageserver' and 'lintr' are needed
 
   - Add this to your tasks.json by opening the command palette (Ctrl+Shift+P) and selecting `zed: open tasks`
 
-`[
+`
+[
   {
-    "label": "Run R tests",
-    "command": "Rscript -e 'testthat::test_dir(\"tests/testthat\")'",
+    "label": "Run all R tests",
+    "command": "Rscript -e \"testthat::test_dir('tests/testthat')\"",
     "cwd": "$ZED_WORKTREE_ROOT",
     "use_new_terminal": false,
     "allow_concurrent_runs": false,
@@ -26,8 +27,8 @@ The R packages 'languageserver' and 'lintr' are needed
     "show_output": true
   },
   {
-    "label": "Run current R test file",
-    "command": "Rscript -e 'testthat::test_file(\"$ZED_RELATIVE_FILE\")'",
+    "label": "Run current R file test",
+    "command": "Rscript -e \"testthat::test_file('$ZED_RELATIVE_FILE')\"",
     "cwd": "$ZED_WORKTREE_ROOT",
     "use_new_terminal": false,
     "allow_concurrent_runs": false,
@@ -35,7 +36,8 @@ The R packages 'languageserver' and 'lintr' are needed
     "show_summary": true,
     "show_output": true
   }
-]`
+]
+`
 
   - For a keyboard shortcut for tests, follow [this section](https://zed.dev/docs/tasks#custom-keybindings-for-tasks) in the official Zed documentation.
 
