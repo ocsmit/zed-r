@@ -116,29 +116,16 @@
 (call function: (identifier) @function)
 
 (call function: (identifier) @keyword
-     (#any-of? @keyword "library" "require" "source" "return" "stop" "try" "tryCatch"))
+  (#any-of? @keyword "library" "require" "source" "return" "stop" "try" "tryCatch"))
 
 [
   (function_definition)
   (lambda_function)
 ] @function.outer
 
-(function_definition
-  "function" @keyword
-  [
-    (call)
-    (binary)
-    (brace_list)
-  ] @function.inner) @function.outer
+(function_definition "function" @keyword)
 
-(lambda_function
-  "\\" @keyword
-  [
-    (call)
-    (binary)
-    (brace_list)
-  ] @function.inner
-) @function.outer
+(lambda_function "\\" @keyword)
 
 (default_argument name: (identifier) @parameter)
 
