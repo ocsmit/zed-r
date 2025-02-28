@@ -3,11 +3,11 @@
 
 ; Literals
 
-(integer) @number
-
-(float) @float
-
-(complex) @number
+[
+  (integer)
+  (float)
+  (complex)
+] @number
 
 (string) @string
 (string (escape_sequence) @string.escape)
