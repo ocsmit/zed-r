@@ -98,13 +98,13 @@
   "if"
   "else"
   "switch"
-] @conditional
+] @keyword
 
 [
   "while"
   "repeat"
   "for"
-] @repeat
+] @keyword
 
 [
   (true)
@@ -112,8 +112,11 @@
 ] @boolean
 
 ; funcs
-"function" @keyword.function
+; "function" @keyword.function
 (call function: (identifier) @function)
+
+(call function: (identifier) @keyword
+     (#any-of? @keyword "library" "require" "source" "return" "stop" "try" "tryCatch"))
 
 [
   (function_definition)
@@ -121,6 +124,7 @@
 ] @function.outer
 
 (function_definition
+  "function" @keyword
   [
     (call)
     (binary)
@@ -128,6 +132,7 @@
   ] @function.inner) @function.outer
 
 (lambda_function
+  "\\" @keyword
   [
     (call)
     (binary)
