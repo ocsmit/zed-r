@@ -10,6 +10,21 @@ The latest version can be installed from the Zed extensions menu, or by cloning 
 
 The R packages 'languageserver' and 'lintr' are needed
 
+# RStudio keybindings
+
+  - Add this to your keybindings.json by opening the command palette (Ctrl+Shift+P) and selecting `zed: open keybindings`
+
+```
+  {
+    "context": "Editor",
+    "bindings": {
+      "ctrl-shift-m": ["workspace::SendKeystrokes", "|>"],
+      "alt--": ["workspace::SendKeystrokes", "< -"],
+      "ctrl-alt-i": ["workspace::SendKeystrokes", "\n# %%\n"]
+      }
+  }
+```
+
 # Enabling R Tests
 
   - Add this to your tasks.json by opening the command palette (Ctrl+Shift+P) and selecting `zed: open tasks`
