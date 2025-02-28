@@ -14,7 +14,7 @@ The R packages 'languageserver' and 'lintr' are needed
 
   - Add this to your tasks.json by opening the command palette (Ctrl+Shift+P) and selecting `zed: open tasks`
 
-`
+```
 [
   {
     "label": "Run all R tests",
@@ -37,7 +37,7 @@ The R packages 'languageserver' and 'lintr' are needed
     "show_output": true
   }
 ]
-`
+```
 
   - For a keyboard shortcut for tests, follow [this section](https://zed.dev/docs/tasks#custom-keybindings-for-tasks) in the official Zed documentation.
 
