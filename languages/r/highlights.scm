@@ -3,11 +3,11 @@
 
 ; Literals
 
-(integer) @number
-
-(float) @float
-
-(complex) @number
+[
+  (integer)
+  (float)
+  (complex)
+] @number
 
 (string) @string
 (string (escape_sequence) @string.escape)
@@ -82,6 +82,12 @@
 
 [
  "in"
+ "if"
+ "else"
+ "switch"
+ "while"
+ "repeat"
+ "for"
  (dots)
  (break)
  (next)
@@ -92,19 +98,7 @@
   (nan)
   (na)
   (null)
-] @type.builtin
-
-[
-  "if"
-  "else"
-  "switch"
-] @conditional
-
-[
-  "while"
-  "repeat"
-  "for"
-] @repeat
+] @variable.special
 
 [
   (true)
@@ -112,28 +106,20 @@
 ] @boolean
 
 ; funcs
-"function" @keyword.function
+;"function" @keyword.function
 (call function: (identifier) @function)
+
+(call function: (identifier) @keyword
+  (#any-of? @keyword "library" "require" "source" "return" "stop" "try" "tryCatch"))
 
 [
   (function_definition)
   (lambda_function)
 ] @function.outer
 
-(function_definition
-  [
-    (call)
-    (binary)
-    (brace_list)
-  ] @function.inner) @function.outer
+(function_definition "function" @keyword)
 
-(lambda_function
-  [
-    (call)
-    (binary)
-    (brace_list)
-  ] @function.inner
-) @function.outer
+(lambda_function "\\" @keyword)
 
 (default_argument name: (identifier) @parameter)
 
@@ -142,10 +128,10 @@
 (namespace_get_internal function: (identifier) @function)
 
 (namespace_get
-    namespace: (identifier) @name
+    namespace: (identifier) @type
     "::" @operator)
 (namespace_get_internal
-    namespace: (identifier) @name
+    namespace: (identifier) @type
     ":::" @operator)
 
 ; Error
