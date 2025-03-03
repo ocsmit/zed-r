@@ -2,7 +2,10 @@ id = "r"
 name = "R"
 version = "0.0.5"
 schema_version = 1
-authors = ["Owen Smith <owen8461@protonmail.com>"]
+authors = [
+    "Owen Smith <owen8461@protonmail.com>",
+    "Aymen Nasri <aymennasrii@proton.me>",
+]
 description = "R languange support"
 repository = "https://github.com/ocsmit/zed-r"
 
