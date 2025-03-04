@@ -18,6 +18,7 @@ The R packages 'languageserver' and 'lintr' are needed
   {
     "context": "Editor",
     "bindings": {
+      "ctrl-shift-f10": "repl::Restart", # Equivalent to restarting R in RStudio
       "ctrl-\\": "assistant::InlineAssist",
       "ctrl-shift-m": ["workspace::SendKeystrokes", "space |> space"],
       "alt--": ["workspace::SendKeystrokes", "< -"],
@@ -25,8 +26,8 @@ The R packages 'languageserver' and 'lintr' are needed
       "ctrl-shift-d": [
         "task::Spawn",
         { "task_name": "Document local R package", "reveal_target": "center" }
-      ],
-      }
+      ]
+    }
   },
   {
     "context": "Workspace",
