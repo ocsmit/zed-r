@@ -29,5 +29,5 @@
 ; Jupyter cell tag
 (
   (comment) @name
-  (#match? @name "^#\\s?%%")
+  (#match? @name "^#\\s%%")
 ) @item

@@ -143,4 +143,4 @@
 
 ; jupyter cell tag
 ((comment) @operator
-    (#match? @operator "^#\\s?%%"))
+    (#match? @operator "^#\\s%%"))

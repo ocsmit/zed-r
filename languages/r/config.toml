@@ -1,8 +1,8 @@
 name = "R"
 grammar = "r"
 path_suffixes = ["r", "R"]
-line_comments = ["# ", "#' ", "#"]
-autoclose_before = "$@=,}])"
+line_comments = ["# ", "#' "]
+autoclose_before = "$@=,}[]()"
 brackets = [
     { start = "{", end = "}", close = true, newline = true },
     { start = "[", end = "]", close = true, newline = true },
@@ -18,3 +18,5 @@ brackets = [
 ]
 collapsed_placeholder = "# ..."
 word_characters = ["."]
+increase_indent_pattern = "^[^#]*[+\\-*/<=>%&|]\\s*$"
+# decrease_indent_pattern = ""
