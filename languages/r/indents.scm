@@ -31,3 +31,8 @@
 ] @indent.end
 
 (comment) @indent.ignore
+
+; keep the same level of indentation
+(_ "[" "]" @end) @indent
+(_ "{" "}" @end) @indent
+(_ "(" ")" @end) @indent
