@@ -1,33 +1,37 @@
-[
-  (brace_list)
-  (paren_list)
-  (special)
-  (pipe)
-  (call)
-  "|>"
-  "if"
-  "else"
-  "while"
-  "repeat"
-  "for"
-] @indent.begin
+; [
+;   (brace_list)
+;   (paren_list)
+;   (special)
+;   (pipe)
+;   (call)
+;   "|>"
+;   "if"
+;   "else"
+;   "while"
+;   "repeat"
+;   "for"
+; ] @indent.begin
 
-(binary
-  operator: (special)) @indent.begin
+; (binary
+;   operator: (special)) @indent.begin
 
-[
-  "}"
-  ")"
-] @indent.branch
+; [
+;   "}"
+;   ")"
+; ] @indent.branch
 
-((formal_parameters
-  (identifier)) @indent.align
-  (#set! indent.open_delimiter "(")
-  (#set! indent.close_delimiter ")"))
+; ((formal_parameters
+;   (identifier)) @indent.align
+;   (#set! indent.open_delimiter "(")
+;   (#set! indent.close_delimiter ")"))
 
-[
-  ")"
-  "}"
-] @indent.end
+; [
+;   ")"
+;   "}"
+; ] @indent.end
 
-(comment) @indent.ignore
+; (comment) @indent.ignore
+
+(_ "[" "]" @end) @indent
+(_ "{" "}" @end) @indent
+(_ "(" ")" @end) @indent
