@@ -7,7 +7,7 @@ authors = [
     "Aymen Nasri <aymennasrii@proton.me>",
     "Changtao Li <60499240+lict99@users.noreply.github.com>",
 ]
-description = "R languange support"
+description = "R language support."
 repository = "https://github.com/ocsmit/zed-r"
 
 [grammars.r]
