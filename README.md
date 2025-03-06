@@ -21,7 +21,7 @@ The R packages 'languageserver' and 'lintr' are needed
       "ctrl-shift-f10": "repl::Restart", # Equivalent to restarting R in RStudio
       "ctrl-\\": "assistant::InlineAssist",
       "ctrl-shift-m": ["workspace::SendKeystrokes", "space |> space"],
-      "alt--": ["workspace::SendKeystrokes", "< -"],
+      "alt--": ["workspace::SendKeystrokes", "space < - space"],
       "ctrl-alt-i": ["workspace::SendKeystrokes", "\n# space %%\n"],
       "ctrl-shift-d": [
         "task::Spawn",
