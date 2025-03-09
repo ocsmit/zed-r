@@ -1,141 +1,125 @@
 ; highlights.scm
 
-
 ; Literals
 
-[
-  (integer)
-  (float)
-  (complex)
-] @number
+(integer) @number
+(float) @number
+(complex) @number
 
 (string) @string
-(string (escape_sequence) @string.escape)
+(string (string_content (escape_sequence) @string.escape))
+
+; Comments
 
 (comment) @comment
 
-(identifier) @variable
-
-(formal_parameters (identifier) @parameter)
-(formal_parameters (default_parameter (identifier) @parameter))
-
 ; Operators
+
 [
- "="
- "<-"
- "<<-"
- "->>"
- "->"
+  "?" ":=" "=" "<-" "<<-" "->" "->>"
+  "~" "|>" "||" "|" "&&" "&"
+  "<" "<=" ">" ">=" "==" "!="
+  "+" "-" "*" "/" "::" ":::"
+  "**" "^" "$" "@" ":" "!"
+  "special"
 ] @operator
 
-(unary operator: [
-  "-"
-  "+"
-  "!"
-  "~"
-] @operator)
-
-(binary operator: [
-  "-"
-  "+"
-  "*"
-  "/"
-  "^"
-  "<"
-  ">"
-  "<="
-  ">="
-  "=="
-  "!="
-  "||"
-  "|"
-  "&&"
-  "&"
-  ":"
-  "~"
-] @operator)
+; Punctuation
 
 [
-  "|>"
-  (special)
-] @operator
-
-(lambda_function "\\" @operator)
-
-[
- "("
- ")"
- "["
- "]"
- "{"
- "}"
+  "("  ")"
+  "{"  "}"
+  "["  "]"
+  "[[" "]]"
 ] @punctuation.bracket
 
-(dollar "$" @operator)
-(slot "@" @operator)
+(comma) @punctuation.delimiter
 
-(subset2
- [
-  "[["
-  "]]"
- ] @punctuation.bracket)
+; Variables
+
+(identifier) @variable
+
+; Functions
+
+(binary_operator
+    lhs: (identifier) @function
+    operator: "<-"
+    rhs: (function_definition)
+)
+
+(binary_operator
+    lhs: (identifier) @function
+    operator: "="
+    rhs: (function_definition)
+)
+
+; Calls
+
+(call function: (identifier) @function)
+
+; Parameters
+
+(parameters (parameter name: (identifier) @variable.parameter))
+(arguments (argument name: (identifier) @variable.parameter))
+
+; Namespace
+
+(namespace_operator lhs: (identifier) @type)
+
+(call
+    function: (namespace_operator rhs: (identifier) @function)
+)(call function: (identifier) @function)
+
+
+; Keywords
+
+(function_definition name: "function" @keyword.function)
+(function_definition name: "\\" @keyword.function)
 
 [
- "in"
- "if"
- "else"
- "switch"
- "while"
- "repeat"
- "for"
- (dots)
- (break)
- (next)
- (inf)
+  "in"
+  (return)
+  (next)
+  (break)
+   "if"
+   "else"
+   ; "switch"
+   "while"
+   "repeat"
+   "for"
 ] @keyword
 
-[
-  (nan)
-  (na)
-  (null)
-] @variable.special
+; [
+;   "if"
+;   "else"
+; ] @conditional
+
+; [
+;   "while"
+;   "repeat"
+;   "for"
+; ] @repeat
 
 [
   (true)
   (false)
 ] @boolean
 
-; funcs
-;"function" @keyword.function
-(call function: (identifier) @function)
+[
+  (null)
+  (inf)
+  (nan)
+  (na)
+  (dots)
+  (dot_dot_i)
+] @constant.builtin
+
+; Error
+
+(ERROR) @error
 
 (call function: (identifier) @keyword
   (#any-of? @keyword "library" "require" "source" "return" "stop" "try" "tryCatch"))
-
-[
-  (function_definition)
-  (lambda_function)
-] @function.outer
-
-(function_definition "function" @keyword)
-
-(lambda_function "\\" @keyword)
-
-(default_argument name: (identifier) @parameter)
-
-; namespace calls
-(namespace_get function: (identifier) @function)
-(namespace_get_internal function: (identifier) @function)
-
-(namespace_get
-    namespace: (identifier) @type
-    "::" @operator)
-(namespace_get_internal
-    namespace: (identifier) @type
-    ":::" @operator)
-
-; Error
-(ERROR) @error
 
 ; roxygen
 ((comment) @documentation
