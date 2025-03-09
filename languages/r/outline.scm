@@ -1,30 +1,24 @@
-; Variables
-(left_assignment
-   name: (identifier) @name
-   value: (_) @value) @item
+(binary_operator
+    lhs: (identifier) @name
+    operator: "<-"
+    rhs: (function_definition)
+) @definition.function
 
-(equals_assignment
-   name: (identifier) @name
-   value: (_) @value) @item
+(binary_operator
+    lhs: (identifier) @name
+    operator: "="
+    rhs: (function_definition)
+) @definition.function
 
-(right_assignment
-    value: (_) @value
-    name: (identifier) @name) @item
+(call
+    function: (identifier) @name
+) @reference.call
 
-(super_assignment
-    name: (identifier) @name
-    value: (_) @value) @item
-
-(super_right_assignment
-    value: (_) @value
-    name: (identifier) @name) @item
-
-; `for` loop
-(for
-  "(" (identifier) @name
-      "in" (_) @value
-  ")"
-  body: (_)) @item
+(call
+    function: (namespace_operator
+        rhs: (identifier) @name
+    )
+) @reference.call
 
 ; Jupyter cell tag
 (
