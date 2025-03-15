@@ -1,33 +1,28 @@
-; Variables
-(left_assignment
-   name: (identifier) @name
-   value: (_) @value) @item
+; Variables by assignment operators
+(binary_operator
+    lhs: (identifier) @name
+    operator: ["<-" "=" "<<-"]
+    rhs: (_)
+) @item
 
-(equals_assignment
-   name: (identifier) @name
-   value: (_) @value) @item
+(binary_operator
+    lhs: (_)
+    operator: ["->" "->>"]
+    rhs: (identifier) @name
+) @item
 
-(right_assignment
-    value: (_) @value
-    name: (identifier) @name) @item
-
-(super_assignment
-    name: (identifier) @name
-    value: (_) @value) @item
-
-(super_right_assignment
-    value: (_) @value
-    name: (identifier) @name) @item
-
-; `for` loop
-(for
-  "(" (identifier) @name
-      "in" (_) @value
-  ")"
-  body: (_)) @item
+; Variables by `for` loop
+(for_statement
+  "for" @context
+  "(" @context
+  variable: (identifier) @name
+  "in" @context
+  sequence: (_) @context
+  ")" @context
+) @item
 
 ; Jupyter cell tag
 (
-  (comment) @name
-  (#match? @name "^#\\s?%%")
+    (comment) @name
+    (#match? @name "^#\\s?%%")
 ) @item
