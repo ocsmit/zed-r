@@ -1,7 +1,7 @@
 on:
   push:
     tags:
-      - 'v*'
+      - "v*"
 
 jobs:
   homebrew:
@@ -12,7 +12,7 @@ jobs:
         with:
           extension-name: r
           # extension-path: extensions/${{ extension-name }}
-          push-to: ocsmit/extensions
+          push-to: aymennasri/extensions
         env:
           # the personal access token should have "repo" & "workflow" scopes
           COMMITTER_TOKEN: ${{ secrets.COMMITTER_TOKEN }}
