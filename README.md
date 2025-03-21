@@ -18,7 +18,7 @@ The R packages 'languageserver' and 'lintr' are needed
   {
     "context": "Editor",
     "bindings": {
-      "ctrl-shift-f10": "repl::Restart", # Equivalent to restarting R in RStudio
+      "ctrl-shift-f10": "repl::Restart", // Equivalent to restarting R in RStudio
       "ctrl-\\": "assistant::InlineAssist",
       "ctrl-shift-m": ["workspace::SendKeystrokes", "space |> space"],
       "alt--": ["workspace::SendKeystrokes", "space < - space"],
