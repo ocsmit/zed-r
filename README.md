@@ -106,6 +106,17 @@ The R packages 'languageserver' and 'lintr' are needed
     "reveal": "always",
     "show_summary": true,
     "show_output": true
+  },
+  {
+    "label": "Run test_that test", // Can be triggered, without a keyboard shortcut
+    // or clicking on the run button, by toggling the code action menu (Ctrl+.)
+    "command": "Rscript",
+    "cwd": "$ZED_WORKTREE_ROOT",
+    "args": [
+      "-e",
+      "\"testthat::test_file(\\\"${ZED_FILE}\\\", desc = \\\"${ZED_CUSTOM_desc}\\\")\""
+    ],
+    "tags": ["r-test"]
   }
 ]
 ```
