@@ -14,7 +14,7 @@ The R packages 'languageserver' and 'lintr' are needed
 
   - Add this to your keymap.json by opening the command palette (Ctrl+Shift+P) and selecting `zed: open keymap`. Note in the following that users on macOS will likely want to replace `ctrl` with `cmd`.
 
-```
+```json
   {
     "context": "Editor",
     "bindings": {
@@ -59,7 +59,7 @@ The R packages 'languageserver' and 'lintr' are needed
 
   - Add this to your tasks.json by opening the command palette (Ctrl+Shift+P) and selecting `zed: open tasks`
 
-```
+```json
 [
   {
     "label": "R Terminal",
