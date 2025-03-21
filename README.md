@@ -12,7 +12,7 @@ The R packages 'languageserver' and 'lintr' are needed
 
 # RStudio keybindings
 
-  - Add this to your keybindings.json by opening the command palette (Ctrl+Shift+P) and selecting `zed: open keybindings`
+  - Add this to your keymap.json by opening the command palette (Ctrl+Shift+P) and selecting `zed: open keymap`.
 
 ```
   {
