@@ -12,13 +12,13 @@ The R packages 'languageserver' and 'lintr' are needed
 
 # RStudio keybindings
 
-  - Add this to your keybindings.json by opening the command palette (Ctrl+Shift+P) and selecting `zed: open keybindings`
+  - Add this to your keymap.json by opening the command palette (Ctrl+Shift+P) and selecting `zed: open keymap`. Note in the following that users on macOS will likely want to replace `ctrl` with `cmd`.
 
-```
+```json
   {
     "context": "Editor",
     "bindings": {
-      "ctrl-shift-f10": "repl::Restart", # Equivalent to restarting R in RStudio
+      "ctrl-shift-f10": "repl::Restart", // Equivalent to restarting R in RStudio
       "ctrl-\\": "assistant::InlineAssist",
       "ctrl-shift-m": ["workspace::SendKeystrokes", "space |> space"],
       "alt--": ["workspace::SendKeystrokes", "space < - space"],
@@ -59,7 +59,7 @@ The R packages 'languageserver' and 'lintr' are needed
 
   - Add this to your tasks.json by opening the command palette (Ctrl+Shift+P) and selecting `zed: open tasks`
 
-```
+```json
 [
   {
     "label": "R Terminal",
