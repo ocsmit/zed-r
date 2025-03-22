@@ -28,6 +28,10 @@ The R packages 'languageserver' and 'lintr' are needed
       "ctrl-shift-d": [
         "task::Spawn",
         { "task_name": "Document local R package", "reveal_target": "center" }
+      ],
+      "ctrl-alt-enter": [
+        "workspace::SendKeystrokes",
+        "ctrl-c ctrl-` ctrl-v enter ctrl-` down"
       ]
     }
   },
@@ -51,7 +55,7 @@ The R packages 'languageserver' and 'lintr' are needed
       ],
       "ctrl-2": [
         "task::Spawn",
-        { "task_name": "R Terminal", "reveal_target": "center" }
+        { "task_name": "R Terminal", "reveal_target": "dock" }
       ]
     }
   }
