@@ -28,6 +28,10 @@ The R packages 'languageserver' and 'lintr' are needed
       "ctrl-shift-d": [
         "task::Spawn",
         { "task_name": "Document local R package", "reveal_target": "center" }
+      ],
+      "ctrl-alt-enter": [
+        "workspace::SendKeystrokes",
+        "ctrl-c ctrl-` ctrl-v enter ctrl-` down"
       ]
     }
   },
@@ -51,7 +55,15 @@ The R packages 'languageserver' and 'lintr' are needed
       ],
       "ctrl-2": [
         "task::Spawn",
-        { "task_name": "R Terminal", "reveal_target": "center" }
+        { "task_name": "R Terminal", "reveal_target": "dock" }
+      ],
+      "cmd-shift-enter": [
+        "task::Spawn",
+        { "task_name": "Source current file", "reveal_target": "dock"}
+      ],
+      "ctrl-shift-e": [
+        "task::Spawn",
+        { "task_name": "Check local R package", "reveal_target": "dock"}
       ]
     }
   }
@@ -117,11 +129,34 @@ The R packages 'languageserver' and 'lintr' are needed
       "\"testthat::test_file(\\\"${ZED_FILE}\\\", desc = \\\"${ZED_CUSTOM_desc}\\\")\""
     ],
     "tags": ["r-test"]
+  },
+  {
+    "label": "Source current file",
+    "command": "Rscript -e \"source('$ZED_RELATIVE_FILE', echo = TRUE)\"",
+    "cwd": "$ZED_WORKTREE_ROOT",
+    "use_new_terminal": false,
+    "allow_concurrent_runs": false,
+    "reveal": "always",
+    "show_summary": true,
+    "show_output": true
+  },
+  {
+    "label": "Check local R package",
+    "command": "Rscript -e \"devtools::check()\"",
+    "cwd": "$ZED_WORKTREE_ROOT",
+    "use_new_terminal": false,
+    "allow_concurrent_runs": false
   }
 ]
 ```
 
   - For a different keyboard shortcut for tasks, follow [this section](https://zed.dev/docs/tasks#custom-keybindings-for-tasks) in the official Zed documentation.
+  
+  - Additionally it is possible to run R code using Zed's REPL feature. To enable this, install either the Ark or Xeus Jupyter kernels and then in an R file run a line or selection by pressing `ctrl-shift-enter`. The documentation can be found at
+    - https://zed.dev/docs/languages/r
+    - https://zed.dev/docs/repl
+    - https://zed.dev/docs/repl#r-ark
+    - https://zed.dev/docs/repl#r-xeus
 
 # Caveats
   - A custom startup message in `.Rprofile` can potentially cause the the LSP message headers to be decoded improperly and prevent the language server from starting in Zed ([#7](https://github.com/ocsmit/zed-r/issues/7)).
