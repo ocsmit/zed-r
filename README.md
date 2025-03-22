@@ -140,6 +140,12 @@ The R packages 'languageserver' and 'lintr' are needed
 ```
 
   - For a different keyboard shortcut for tasks, follow [this section](https://zed.dev/docs/tasks#custom-keybindings-for-tasks) in the official Zed documentation.
+  
+  - Additionally it is possible to run R code using Zed's REPL feature. To enable this, install either the Ark or Xeus Jupyter kernels and then in an R file run a line or selection by pressing `ctrl-shift-enter`. The documentation can be found at
+    - https://zed.dev/docs/languages/r
+    - https://zed.dev/docs/repl
+    - https://zed.dev/docs/repl#r-ark
+    - https://zed.dev/docs/repl#r-xeus
 
 # Caveats
   - A custom startup message in `.Rprofile` can potentially cause the the LSP message headers to be decoded improperly and prevent the language server from starting in Zed ([#7](https://github.com/ocsmit/zed-r/issues/7)).
