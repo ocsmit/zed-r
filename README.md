@@ -6,6 +6,12 @@ Provides [tree-sitter](https://tree-sitter.github.io/tree-sitter/) queries and [
 
 The latest version can be installed from the Zed extensions menu, or by cloning the repo and installing it locally from the Zed extensions menu.
 
+Additionally, it is recommended to run R code using Zed's REPL feature. To enable this, install either the Ark or Xeus Jupyter kernels then in an R file run the cell by pressing `ctrl-shift-enter`. Further information can be found at:
+  - https://zed.dev/docs/languages/r
+  - https://zed.dev/docs/repl
+  - https://zed.dev/docs/repl#r-ark
+  - https://zed.dev/docs/repl#r-xeus
+
 # LSP
 
 The R packages 'languageserver' and 'lintr' are needed
@@ -31,7 +37,7 @@ The R packages 'languageserver' and 'lintr' are needed
       ],
       "ctrl-alt-enter": [
         "workspace::SendKeystrokes",
-        "ctrl-c ctrl-` ctrl-v enter ctrl-` down"
+        "ctrl-c ctrl-` ctrl-shift-v enter ctrl-`"
       ]
     }
   },
@@ -48,22 +54,19 @@ The R packages 'languageserver' and 'lintr' are needed
       ],
       "ctrl-shift-b": [
         "task::Spawn",
-        {
-          "task_name": "Install local R package",
-          "reveal_target": "center"
-        }
+        { "task_name": "Install local R package", "reveal_target": "center" }
       ],
       "ctrl-2": [
         "task::Spawn",
         { "task_name": "R Terminal", "reveal_target": "dock" }
       ],
-      "cmd-shift-enter": [
+      "ctrl-shift-s": [
         "task::Spawn",
-        { "task_name": "Source current file", "reveal_target": "dock"}
+        { "task_name": "Source current file", "reveal_target": "center"}
       ],
       "ctrl-shift-e": [
         "task::Spawn",
-        { "task_name": "Check local R package", "reveal_target": "dock"}
+        { "task_name": "Check local R package", "reveal_target": "center"}
       ]
     }
   }
@@ -95,6 +98,13 @@ The R packages 'languageserver' and 'lintr' are needed
   {
     "label": "Document local R package",
     "command": "Rscript -e \"devtools::document(roclets = c('rd', 'collate', 'namespace'))\"",
+    "cwd": "$ZED_WORKTREE_ROOT",
+    "use_new_terminal": false,
+    "allow_concurrent_runs": false
+  },
+  {
+    "label": "Check local R package",
+    "command": "Rscript -e \"devtools::check()\"",
     "cwd": "$ZED_WORKTREE_ROOT",
     "use_new_terminal": false,
     "allow_concurrent_runs": false
@@ -139,24 +149,11 @@ The R packages 'languageserver' and 'lintr' are needed
     "reveal": "always",
     "show_summary": true,
     "show_output": true
-  },
-  {
-    "label": "Check local R package",
-    "command": "Rscript -e \"devtools::check()\"",
-    "cwd": "$ZED_WORKTREE_ROOT",
-    "use_new_terminal": false,
-    "allow_concurrent_runs": false
   }
 ]
 ```
 
   - For a different keyboard shortcut for tasks, follow [this section](https://zed.dev/docs/tasks#custom-keybindings-for-tasks) in the official Zed documentation.
-  
-  - Additionally it is possible to run R code using Zed's REPL feature. To enable this, install either the Ark or Xeus Jupyter kernels and then in an R file run a line or selection by pressing `ctrl-shift-enter`. The documentation can be found at
-    - https://zed.dev/docs/languages/r
-    - https://zed.dev/docs/repl
-    - https://zed.dev/docs/repl#r-ark
-    - https://zed.dev/docs/repl#r-xeus
 
 # Caveats
   - A custom startup message in `.Rprofile` can potentially cause the the LSP message headers to be decoded improperly and prevent the language server from starting in Zed ([#7](https://github.com/ocsmit/zed-r/issues/7)).
