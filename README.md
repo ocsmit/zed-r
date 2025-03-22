@@ -56,6 +56,10 @@ The R packages 'languageserver' and 'lintr' are needed
       "ctrl-2": [
         "task::Spawn",
         { "task_name": "R Terminal", "reveal_target": "dock" }
+      ],
+      "cmd-shift-enter": [
+        "task::Spawn",
+        { "task_name": "Source current file", "reveal_target": "dock"}
       ]
     }
   }
@@ -121,6 +125,16 @@ The R packages 'languageserver' and 'lintr' are needed
       "\"testthat::test_file(\\\"${ZED_FILE}\\\", desc = \\\"${ZED_CUSTOM_desc}\\\")\""
     ],
     "tags": ["r-test"]
+  },
+  {
+    "label": "Source current file",
+    "command": "Rscript -e \"source('$ZED_RELATIVE_FILE', echo = TRUE)\"",
+    "cwd": "$ZED_WORKTREE_ROOT",
+    "use_new_terminal": false,
+    "allow_concurrent_runs": false,
+    "reveal": "always",
+    "show_summary": true,
+    "show_output": true
   }
 ]
 ```
