@@ -16,6 +16,6 @@ brackets = [
     ] },
 ]
 collapsed_placeholder = "# ..."
-completion_query_characters = ["."]
+word_characters = ["."]
 # increase_indent_pattern = "^[^#]*[+\\-*/<=>%&|]\\s*$"
 # decrease_indent_pattern = ""
