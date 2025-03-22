@@ -60,6 +60,10 @@ The R packages 'languageserver' and 'lintr' are needed
       "cmd-shift-enter": [
         "task::Spawn",
         { "task_name": "Source current file", "reveal_target": "dock"}
+      ],
+      "ctrl-shift-e": [
+        "task::Spawn",
+        { "task_name": "Check local R package", "reveal_target": "dock"}
       ]
     }
   }
@@ -135,6 +139,13 @@ The R packages 'languageserver' and 'lintr' are needed
     "reveal": "always",
     "show_summary": true,
     "show_output": true
+  },
+  {
+    "label": "Check local R package",
+    "command": "Rscript -e \"devtools::check()\"",
+    "cwd": "$ZED_WORKTREE_ROOT",
+    "use_new_terminal": false,
+    "allow_concurrent_runs": false
   }
 ]
 ```
