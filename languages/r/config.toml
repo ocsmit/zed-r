@@ -2,6 +2,7 @@ name = "R"
 grammar = "r"
 path_suffixes = ["r", "R"]
 line_comments = ["# ", "#' "]
+tab_size = 2
 autoclose_before = "$@=,}])"
 brackets = [
     { start = "{", end = "}", close = true, newline = true },
