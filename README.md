@@ -6,15 +6,15 @@ Provides [tree-sitter](https://tree-sitter.github.io/tree-sitter/) queries and [
 
 The latest version can be installed from the Zed extensions menu, or by cloning the repo and installing it locally from the Zed extensions menu.
 
-Additionally, it is recommended to run R code using Zed's REPL feature. To enable this, install either the Ark or Xeus Jupyter kernels then in an R file run the cell by pressing `ctrl-shift-enter`. Further information can be found at:
+Additionally, it is recommended to run R code using Zed's REPL feature. To enable this, install either the Ark or Xeus Jupyter kernels; then in an R file create a REPL cell by typing `# %%` (or by using the shortcut available [below](https://github.com/ocsmit/zed-r/#rstudio-keybindings)) and run it by pressing `ctrl-shift-enter`.
+
+Further information can be found at:
   - https://zed.dev/docs/languages/r
   - https://zed.dev/docs/repl
-  - https://zed.dev/docs/repl#r-ark
-  - https://zed.dev/docs/repl#r-xeus
 
 # LSP
 
-The R packages 'languageserver' and 'lintr' are needed
+The R packages `languageserver` and `lintr` are needed.
 
 # RStudio keybindings
 
@@ -153,7 +153,7 @@ The R packages 'languageserver' and 'lintr' are needed
 ]
 ```
 
-  - For a different keyboard shortcut for tasks, follow [this section](https://zed.dev/docs/tasks#custom-keybindings-for-tasks) in the official Zed documentation.
+  - For a different keyboard shortcut for tasks, read [this section](https://zed.dev/docs/tasks#custom-keybindings-for-tasks) in the official Zed documentation.
 
 # Caveats
   - A custom startup message in `.Rprofile` can potentially cause the the LSP message headers to be decoded improperly and prevent the language server from starting in Zed ([#7](https://github.com/ocsmit/zed-r/issues/7)).
@@ -161,4 +161,4 @@ The R packages 'languageserver' and 'lintr' are needed
 
 # Known issues
 
-Check out the project's [issue list](https://github.com/ocsmit/zed-r/issues) for a list of unresolved issues. Feel free to fix any of them and send me a pull request!
+Check out the project's [issue list](https://github.com/ocsmit/zed-r/issues) for a list of unresolved issues. Feel free to fix any of them and send us a pull request!
