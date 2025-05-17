@@ -80,7 +80,7 @@ The R packages `languageserver` and `lintr` are needed.
 [
   {
     "label": "R Terminal",
-    "command": "R",
+    "command": "R", // You could also use [radian](https://github.com/randy3k/radian)
     "cwd": "$ZED_WORKTREE_ROOT",
     "use_new_terminal": true
   },
