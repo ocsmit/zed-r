@@ -122,8 +122,8 @@
   (#any-of? @keyword "library" "require" "source" "return" "stop" "try" "tryCatch"))
 
 ; roxygen
-((comment) @documentation
-    (#match? @documentation "^#'"))
+((comment) @comment.doc
+    (#match? @comment.doc "^#'"))
 
 ; jupyter cell tag
 ((comment) @operator
