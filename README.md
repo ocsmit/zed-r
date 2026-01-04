@@ -12,8 +12,6 @@ Further information can be found at:
   - https://zed.dev/docs/languages/r
   - https://zed.dev/docs/repl
 
-**Note: Recently, there is an issue with [ark](https://github.com/posit-dev/ark/issues/788) not working with the REPL feature. You might want to test out the other kernel options.**
-
 # LSP
 
 The R packages `languageserver` and `lintr` are needed.
