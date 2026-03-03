@@ -1,6 +1,6 @@
 id = "r"
 name = "R"
-version = "0.2.5"
+version = "0.2.5-adh"
 schema_version = 1
 authors = [
     "Owen Smith <owen8461@protonmail.com>",
@@ -14,6 +14,13 @@ repository = "https://github.com/ocsmit/zed-r"
 repository = "https://github.com/r-lib/tree-sitter-r"
 commit = "a0d3e3307489c3ca54da8c7b5b4e0c5f5fd6953a"
 
+[language_servers.air]
+name = "air"
+languages = ["R"]
+
 [language_servers.r_language_server]
 name = "r lsp"
-language = "R"
+languages = ["R", "R Markdown"]
+
+[language_servers.r_language_server.language_ids]
+"R Markdown" = "rmarkdown"
