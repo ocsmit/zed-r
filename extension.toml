@@ -1,6 +1,6 @@
 id = "r"
 name = "R"
-version = "0.2.5"
+version = "0.2.5-adh"
 schema_version = 1
 authors = [
     "Owen Smith <owen8461@protonmail.com>",
@@ -16,4 +16,8 @@ commit = "a0d3e3307489c3ca54da8c7b5b4e0c5f5fd6953a"
 
 [language_servers.r_language_server]
 name = "r lsp"
-language = "R"
+languages = ["R", "R Markdown"]
+
+[langauge_servers.r_langauge_server.language_ids]
+"R Markdown" = "rmarkdown"
+"R" = "r"
