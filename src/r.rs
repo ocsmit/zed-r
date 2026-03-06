@@ -13,7 +13,7 @@ impl zed::Extension for RExtension {
         _language_server_id: &LanguageServerId,
         worktree: &zed::Worktree,
     ) -> Result<zed::Command> {
-        let r_path = LspSettings::for_worktree("r_langauge_server", worktree)
+        let r_path = LspSettings::for_worktree("r_language_server", worktree)
             .ok()
             .and_then(|s| s.settings)
             .and_then(|s| s.get("r_path").cloned())

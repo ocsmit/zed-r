@@ -1,0 +1,26 @@
+name = "RMarkdown"
+grammar = "markdown"
+path_suffixes = ["Rmd", "rmd", "qmd"]
+line_comments = ["<!--", "# "]
+tab_size = 2
+autoclose_before = "$@=,}])"
+word_characters = []
+collapsed_placeholder = "..."
+fold_indicators = true
+
+brackets = [
+    { start = "{", end = "}", close = true, newline = true },
+    { start = "[", end = "]", close = true, newline = true },
+    { start = "(", end = ")", close = true, newline = true },
+    { start = "\"", end = "\"", close = true, newline = false, not_in = [
+        "comment",
+        "string",
+    ] },
+    { start = "'", end = "'", close = false, newline = false, not_in = [
+        "comment",
+    ] },
+    { start = "`", end = "`", close = true, newline = false, not_in = [
+        "string",
+        "code_fence_content",
+    ] },
+]
