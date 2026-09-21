@@ -77,6 +77,25 @@ install.packages("lintr")
   }
 ```
 
+# Sending code to an external terminal
+
+The `ctrl-alt-enter` binding above routes code through the clipboard
+(`ctrl-c` -> focus terminal -> paste -> return), which works but overwrites
+whatever you had copied.
+
+If you keep your R console outside Zed -- radian, R, or similar in iTerm2 --
+[zendcode](https://github.com/hachepunto/zendcode) is an alternative. A Zed task
+reads `$ZED_SELECTED_TEXT` and `$ZED_ROW` and sends the code with `osascript`,
+so the clipboard is left alone. With no selection it sends the cursor line and
+advances, like RStudio.
+
+One thing worth knowing whichever route you take: the cursor move has to happen
+*inside* the task, not by chaining keystrokes in the keymap. Zed spawns tasks
+asynchronously, so a `down` bound alongside `task::Spawn` runs first and the
+task ends up reading the already-moved `$ZED_ROW`, sending the wrong line.
+
+Currently macOS + iTerm2 only.
+
 # Tasks for R (works with RStudio keybindings)
 
   - Add this to your tasks.json by opening the command palette (Ctrl+Shift+P) and selecting `zed: open tasks`
