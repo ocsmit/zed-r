@@ -160,6 +160,80 @@ install.packages("lintr")
 
   - For a different keyboard shortcut for tasks, read [this section](https://zed.dev/docs/tasks#custom-keybindings-for-tasks) in the official Zed documentation.
 
+# Alternative: tasks and keybindings for data analysis
+
+If you primarily write R scripts for data analysis rather than developing R packages, you can use this alternative setup for an interactive, RStudio-like workflow:
+
+### `keymap.json`
+
+```json
+  {
+    "context": "Editor",
+    "bindings": {
+      // Send current line (or selection) to R terminal and advance cursor
+      "ctrl-enter": [
+        "workspace::SendKeystrokes",
+        "ctrl-c ctrl-` ctrl-v enter ctrl-` down"
+      ],
+      // Run current R script
+      "ctrl-shift-enter": [
+        "task::Spawn",
+        { "task_name": "Run current R script", "reveal_target": "dock" }
+      ]
+    }
+  },
+  {
+    "context": "Workspace",
+    "bindings": {
+      // Keep terminal dock open when switching focus
+      "ctrl-`": "terminal_panel::ToggleFocus",
+      "ctrl-2": [
+        "task::Spawn",
+        { "task_name": "R Terminal", "reveal_target": "dock" }
+      ],
+      // Install package selected in editor
+      "ctrl-shift-b": [
+        "task::Spawn",
+        { "task_name": "Install selected R package", "reveal_target": "dock" }
+      ]
+    }
+  }
+```
+
+### `tasks.json`
+
+```json
+[
+  {
+    "label": "R Terminal",
+    "command": "R", // Or radian / arf
+    "cwd": "$ZED_WORKTREE_ROOT",
+    "use_new_terminal": true
+  },
+  {
+    "label": "Run current R script",
+    "command": "Rscript \"$ZED_FILE\"",
+    "cwd": "$ZED_WORKTREE_ROOT",
+    "use_new_terminal": false,
+    "reveal": "always"
+  },
+  {
+    "label": "Source current file",
+    "command": "Rscript -e \"source('$ZED_FILE', echo = TRUE)\"",
+    "cwd": "$ZED_WORKTREE_ROOT",
+    "use_new_terminal": false,
+    "reveal": "always"
+  },
+  {
+    "label": "Install selected R package",
+    "command": "Rscript -e \"install.packages('$ZED_SELECTED_TEXT')\"",
+    "cwd": "$ZED_WORKTREE_ROOT",
+    "use_new_terminal": false,
+    "reveal": "always"
+  }
+]
+```
+  
 # Caveats
   - A custom startup message in `.Rprofile` can potentially cause the the LSP message headers to be decoded improperly and prevent the language server from starting in Zed ([#7](https://github.com/ocsmit/zed-r/issues/7)).
 
